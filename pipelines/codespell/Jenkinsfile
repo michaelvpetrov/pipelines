@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Codespell') {
+            steps {
+                script {
+                    def files = ['app.py','build.sh'] 
+                    files.each { file ->
+                        sh "codespell ${file}"
+                    }
+                }
+            }
+        }
+    }
+}
